@@ -28,4 +28,13 @@ public class TemplateMethodTest {
         long resultTime = System.currentTimeMillis() - startTime;
         log.info("logic2 ends: {}", resultTime);
     }
+
+    @Test
+    void templateMethodV1() {
+        AbstractTemplate template1 = new SubClassLogic1();
+        AbstractTemplate template2 = new SubClassLogic2();
+
+        template1.execute();
+        template2.execute();
+    }
 }
