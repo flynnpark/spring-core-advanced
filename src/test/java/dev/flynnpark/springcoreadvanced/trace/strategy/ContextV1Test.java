@@ -1,6 +1,7 @@
 package dev.flynnpark.springcoreadvanced.trace.strategy;
 
 import dev.flynnpark.springcoreadvanced.trace.strategy.code.strategy.ContextV1;
+import dev.flynnpark.springcoreadvanced.trace.strategy.code.strategy.Strategy;
 import dev.flynnpark.springcoreadvanced.trace.strategy.code.strategy.StrategyLogic1;
 import dev.flynnpark.springcoreadvanced.trace.strategy.code.strategy.StrategyLogic2;
 import lombok.extern.slf4j.Slf4j;
@@ -45,4 +46,51 @@ public class ContextV1Test {
         contextV1 = new ContextV1(strategyLogic2);
         contextV1.execute();
     }
+
+    @Test
+    void strategyV2() {
+        Strategy strategyLogic1 = new Strategy() {
+            @Override
+            public void call() {
+                log.info("logic1 starts");
+            }
+        };
+        ContextV1 context1 = new ContextV1(strategyLogic1);
+        context1.execute();
+        Strategy strategyLogic2 = new Strategy() {
+            @Override
+            public void call() {
+                log.info("logic2 starts");
+            }
+        };
+        ContextV1 context2 = new ContextV1(strategyLogic2);
+        context2.execute();
+    }
+
+    @Test
+    void strategyV3() {
+        ContextV1 context1 = new ContextV1(new Strategy() {
+            @Override
+            public void call() {
+                log.info("logic1 starts");
+            }
+        });
+        context1.execute();
+        ContextV1 context2 = new ContextV1(new Strategy() {
+            @Override
+            public void call() {
+                log.info("logic2 starts");
+            }
+        });
+        context2.execute();
+    }
+
+    @Test
+    void strategyV4() {
+        ContextV1 context1 = new ContextV1(() -> log.info("logic1 starts"));
+        context1.execute();
+        ContextV1 context2 = new ContextV1(() -> log.info("logic2 starts"));
+        context2.execute();
+    }
+
 }
