@@ -1,7 +1,7 @@
 package dev.flynnpark.springcoreadvanced.trace.template;
 
 import dev.flynnpark.springcoreadvanced.trace.TraceStatus;
-import hello.proxy.trace.logtrace.LogTrace;
+import dev.flynnpark.springcoreadvanced.trace.logtrace.LogTrace;
 
 public abstract class AbstractTemplate<T> {
 
