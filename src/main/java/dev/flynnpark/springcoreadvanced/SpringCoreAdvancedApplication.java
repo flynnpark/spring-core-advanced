@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Import;
 
 @Import({AppV1Config.class, AppV2Config.class})
-@SpringBootApplication(scanBasePackages = "dev.flynnpark.springcoreadvanced.app.v1")
+@SpringBootApplication(scanBasePackages = "dev.flynnpark.springcoreadvanced.app.v3")
 public class SpringCoreAdvancedApplication {
 
 	public static void main(String[] args) {
