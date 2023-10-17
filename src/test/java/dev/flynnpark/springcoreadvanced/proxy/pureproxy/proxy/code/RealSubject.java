@@ -1,4 +1,4 @@
-package dev.flynnpark.springcoreadvanced.pureproxy.code;
+package dev.flynnpark.springcoreadvanced.proxy.pureproxy.proxy.code;
 
 import lombok.extern.slf4j.Slf4j;
 

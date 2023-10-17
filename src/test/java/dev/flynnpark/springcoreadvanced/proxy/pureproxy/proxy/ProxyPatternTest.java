@@ -1,8 +1,8 @@
-package dev.flynnpark.springcoreadvanced.pureproxy;
+package dev.flynnpark.springcoreadvanced.proxy.pureproxy.proxy;
 
-import dev.flynnpark.springcoreadvanced.pureproxy.code.CacheProxy;
-import dev.flynnpark.springcoreadvanced.pureproxy.code.ProxyPatternClient;
-import dev.flynnpark.springcoreadvanced.pureproxy.code.RealSubject;
+import dev.flynnpark.springcoreadvanced.proxy.pureproxy.proxy.code.ProxyPatternClient;
+import dev.flynnpark.springcoreadvanced.proxy.pureproxy.proxy.code.RealSubject;
+import dev.flynnpark.springcoreadvanced.proxy.pureproxy.proxy.code.CacheProxy;
 import org.junit.jupiter.api.Test;
 
 public class ProxyPatternTest {
