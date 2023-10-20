@@ -1,9 +1,6 @@
 package dev.flynnpark.springcoreadvanced.proxy.pureproxy.decorator;
 
-import dev.flynnpark.springcoreadvanced.proxy.pureproxy.decorator.code.Component;
-import dev.flynnpark.springcoreadvanced.proxy.pureproxy.decorator.code.DecoratorPatternClient;
-import dev.flynnpark.springcoreadvanced.proxy.pureproxy.decorator.code.MessageDecorator;
-import dev.flynnpark.springcoreadvanced.proxy.pureproxy.decorator.code.RealComponent;
+import dev.flynnpark.springcoreadvanced.proxy.pureproxy.decorator.code.*;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 
@@ -24,4 +21,14 @@ public class DecoratorPatternTest {
         DecoratorPatternClient client = new DecoratorPatternClient(decorator);
         client.execute();
     }
+
+    @Test
+    void decoratorTest2() {
+        Component realComponent = new RealComponent();
+        Component decorator = new MessageDecorator(realComponent);
+        Component decorator2 = new TimeDecorator(decorator);
+        DecoratorPatternClient client = new DecoratorPatternClient(decorator2);
+        client.execute();
+    }
 }
+
