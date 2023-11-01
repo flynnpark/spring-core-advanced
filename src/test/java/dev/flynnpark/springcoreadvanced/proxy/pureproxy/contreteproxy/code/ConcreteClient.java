@@ -7,7 +7,7 @@ public class ConcreteClient {
         this.concreteLogic = concreteLogic;
     }
 
-    public String operation() {
+    public String execute() {
         return concreteLogic.operation();
     }
 }
