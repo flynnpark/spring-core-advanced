@@ -56,7 +56,6 @@ public class ReflectionTest {
         log.info("result: {}", result);
     }
 
-    @Slf4j
     class Hello {
         public String callA() {
             log.info("callA");
