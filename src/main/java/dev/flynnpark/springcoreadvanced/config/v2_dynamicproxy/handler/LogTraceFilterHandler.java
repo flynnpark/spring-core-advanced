@@ -2,22 +2,28 @@ package dev.flynnpark.springcoreadvanced.config.v2_dynamicproxy.handler;
 
 import dev.flynnpark.springcoreadvanced.trace.TraceStatus;
 import dev.flynnpark.springcoreadvanced.trace.logtrace.LogTrace;
-import org.springframework.util.PatternMatchUtils;
-
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
+import org.springframework.util.PatternMatchUtils;
 
-public class LogTraceBasicHandler implements InvocationHandler {
+public class LogTraceFilterHandler implements InvocationHandler {
     private final Object target;
     private final LogTrace logTrace;
+    private final String[] patterns;
 
-    public LogTraceBasicHandler(Object target, LogTrace logTrace) {
+    public LogTraceFilterHandler(Object target, LogTrace logTrace, String[] patterns) {
         this.target = target;
         this.logTrace = logTrace;
+        this.patterns = patterns;
     }
 
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+        // 메서드 이름 필터
+        String methodName = method.getName();
+        if (!PatternMatchUtils.simpleMatch(patterns, methodName)) {
+            return method.invoke(target, args);
+        }
 
         TraceStatus status = null;
         try {
