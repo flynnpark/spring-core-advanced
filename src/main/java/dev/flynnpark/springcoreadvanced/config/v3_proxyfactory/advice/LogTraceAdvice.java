@@ -2,11 +2,13 @@ package dev.flynnpark.springcoreadvanced.config.v3_proxyfactory.advice;
 
 import dev.flynnpark.springcoreadvanced.trace.TraceStatus;
 import dev.flynnpark.springcoreadvanced.trace.logtrace.LogTrace;
+import lombok.extern.slf4j.Slf4j;
 import org.aopalliance.intercept.MethodInterceptor;
 import org.aopalliance.intercept.MethodInvocation;
 
 import java.lang.reflect.Method;
 
+@Slf4j
 public class LogTraceAdvice implements MethodInterceptor {
     private final LogTrace logTrace;
 
